@@ -1,5 +1,4 @@
 import subprocess
-from pathlib import Path
 from utils import OUTPUT_DIR
 
 STEPS = [

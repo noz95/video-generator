@@ -5,10 +5,7 @@ import srt
 from pydub import AudioSegment
 from utils import OUTPUT_DIR
 
-# Crée subs.srt à partir des timings piper si présents; sinon, découpe le texte par blocs.
-
-WORDS_PER_LINE = 7  # 6-10 recommandé
-
+WORDS_PER_LINE = 7
 
 def pick_latest_base() -> str:
     wavs = sorted(OUTPUT_DIR.glob("*.wav"), key=lambda p: p.stat().st_mtime, reverse=True)
@@ -20,7 +17,6 @@ def pick_latest_base() -> str:
 def load_timings(path: Path):
     if path.exists():
         data = json.loads(path.read_text(encoding="utf-8"))
-        # Piper JSON: événements (type=phoneme/word/etc.). On extrait les mots avec start/end.
         words = []
         for ev in data:
             if ev.get("type") == "word":

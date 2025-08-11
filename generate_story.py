@@ -28,7 +28,6 @@ def call_ollama(prompt: str) -> str:
 
 
 def parse_story(text: str):
-    # Extract title and story
     title_match = re.search(r"^\s*Titre\s*:\s*(.+)$", text, re.I | re.M)
     story_match = re.search(r"^\s*Histoire\s*:\s*(.+)$", text, re.I | re.S)
     title = title_match.group(1).strip() if title_match else "Histoire courte"

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path("/opt/story-videos")
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", ROOT / "output"))
 BACKGROUND_DIR = Path(os.getenv("BACKGROUND_DIR", ROOT / "backgrounds"))
 
@@ -30,8 +30,8 @@ WORDS_MIN = int(os.getenv("STORY_WORDS_MIN", 120))
 WORDS_MAX = int(os.getenv("STORY_WORDS_MAX", 160))
 STYLE = os.getenv("STORY_GEN_STYLE", "confession reddit, twist léger")
 
-PIPER_MODEL = Path(os.getenv("PIPER_MODEL_PATH", ROOT / "models" / "fr_FR-voice.onnx"))
-PIPER_CONFIG = Path(os.getenv("PIPER_CONFIG_PATH", str(PIPER_MODEL) + ".json"))
+PIPER_MODEL = Path(os.getenv("PIPER_MODEL_PATH", ROOT / "models" / "fr_FR-tom-medium.onnx"))
+PIPER_CONFIG = Path(os.getenv("PIPER_CONFIG_PATH", ROOT / "models" / "fr_FR-tom-medium.onnx.json"))
 PIPER_LENGTH = float(os.getenv("PIPER_LENGTH_SCALE", 1.0))
 PIPER_SPK = int(os.getenv("PIPER_SPEAKER_ID", 0))
 
